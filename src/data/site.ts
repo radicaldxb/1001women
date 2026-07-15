@@ -23,6 +23,7 @@ export const navLinks = [
 export const orgLinks = {
   foundation: "https://1001foundation.com/",
   inventions: "https://www.1001inventions.com/",
+  fstc: "https://www.fstc.org.uk/",
   ahmedSalim: "https://en.wikipedia.org/wiki/Ahmed_Salim",
 } as const;
 
@@ -48,18 +49,21 @@ export const producerRoles = [
   {
     name: "1001 Foundation",
     logo: "/images/logos/1001-Foundation.webp",
+    href: orgLinks.foundation,
     description:
       "The producer of 1001 Inventions and the organisation developing the wider movement, exhibition and public resources.",
   },
   {
     name: "1001 Inventions",
     logo: "/images/logos/1001-inventions.webp",
+    href: orgLinks.inventions,
     description:
       "The global books, exhibitions and educational programmes that 1001 Women builds on.",
   },
   {
     name: "FSTC",
     logo: "/images/logos/FSTC.webp",
+    href: orgLinks.fstc,
     description:
       "Historical research and source material behind the 1001 Women initiative.",
   },

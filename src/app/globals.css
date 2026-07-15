@@ -692,18 +692,15 @@ section {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 96px;
+  min-height: 110px;
   margin-bottom: 22px;
-  padding: 16px 18px;
-  border-radius: var(--radius);
-  background: var(--navy);
 }
 
 .role-logo img {
   width: auto;
   max-width: 100%;
   height: auto;
-  max-height: 64px;
+  max-height: 74px;
   object-fit: contain;
 }
 
@@ -1877,6 +1874,6 @@ section {
   }
 
   .role-logo {
-    min-height: 84px;
+    min-height: 96px;
   }
 }

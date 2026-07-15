@@ -34,14 +34,20 @@ export function Behind() {
         <div className="role-cols" aria-label="Project partners">
           {producerRoles.map((item) => (
             <article className="role-col" key={item.name}>
-              <div className="role-logo">
+              <a
+                className="role-logo"
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${item.name} website`}
+              >
                 <Image
                   src={item.logo}
                   alt={`${item.name} logo`}
-                  width={220}
-                  height={88}
+                  width={253}
+                  height={101}
                 />
-              </div>
+              </a>
               <h3>{item.name}</h3>
               <p>{item.description}</p>
             </article>
