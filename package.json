@@ -11,7 +11,8 @@
   "dependencies": {
     "next": "^15.5.20",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "resend": "^6.17.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

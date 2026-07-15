@@ -1,13 +1,20 @@
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://1001women.netlify.app"
+).replace(/\/$/, "");
+
 export const site = {
   name: "1001 Women",
   title: "The Forgotten Legacy of Muslim Civilisation",
   invitation: "Join the Movement",
   description:
     "Help answer a question too often left unanswered: what was the role of women pioneers in Muslim civilisation? Rediscover overlooked women of science, medicine, learning, arts, leadership and public life — and bring their stories to children, classrooms, museums and online audiences around the world.",
+  shortDescription:
+    "Join the movement rediscovering overlooked women of science, medicine, scholarship, arts, leadership and public life from Muslim civilisation.",
   heroLead:
     "Discover overlooked women of science, medicine, learning, arts, leadership and public life, and bring their stories to children, classrooms, museums and online audiences around the world.",
   statement: "A lasting answer. A shared memory. A new generation inspired.",
-  contactEmail: "info@1001inventions.com",
+  contactEmail: "stephan@radical-thinking.net",
+  formRecipient: "stephan@radical-thinking.net",
   attribution:
     "1001 Women is an initiative of 1001 Foundation, the producer of 1001 Inventions. Produced and led by Ahmed Salim. Research foundation by FSTC.",
 } as const;

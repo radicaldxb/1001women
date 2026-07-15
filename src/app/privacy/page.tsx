@@ -4,9 +4,10 @@ import { Footer } from "@/components/Footer";
 import { orgLinks, site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy – 1001 Women",
+  title: "Privacy Policy",
   description:
-    "How the 1001 Women microsite handles interest registrations, local testing data and email updates.",
+    "How the 1001 Women microsite handles interest registrations, emails and privacy rights.",
+  alternates: { canonical: "/privacy" },
 };
 
 const updated = "15 July 2026";
@@ -82,24 +83,21 @@ export default function PrivacyPage() {
           forms.
         </p>
 
-        <h2>4. Current local testing mode</h2>
+        <h2>4. How we handle interest forms</h2>
         <p>
-          While this version of the site runs for local development and review,
-          form submissions are saved only in your browser’s{" "}
-          <strong>local storage</strong> on your device. They are not sent to a
-          server, database, marketing platform or email provider yet.
+          When you submit an interest form, your details are emailed to{" "}
+          <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a> so the
+          team can respond and keep you updated. A copy may also be stored
+          temporarily in your browser for your own reference.
         </p>
         <p>
-          That means the record stays on the device where you submitted it, and
-          clearing your browser data will remove it. This mode exists for testing
-          the forms before public launch.
+          Form delivery uses a trusted email relay service. We only use the
+          information to reply to your request and send the updates you agreed
+          to receive.
         </p>
 
-        <h2>5. How we will use information after launch</h2>
-        <p>
-          When the site is connected to production systems, we intend to use
-          submitted details to:
-        </p>
+        <h2>5. How we use your information</h2>
+        <p>We use submitted details to:</p>
         <ul>
           <li>respond to your interest registration</li>
           <li>send relevant updates you have consented to receive</li>
@@ -108,8 +106,9 @@ export default function PrivacyPage() {
         </ul>
         <p>
           We will not sell your personal information. We will only share it with
-          service providers who help us operate email, hosting or CRM tools, and
-          only as needed to deliver those services under appropriate agreements.
+          service providers who help us operate email, hosting or related tools,
+          and only as needed to deliver those services under appropriate
+          agreements.
         </p>
 
         <h2>6. Legal basis and consent</h2>

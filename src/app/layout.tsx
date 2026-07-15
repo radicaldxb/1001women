@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Quicksand } from "next/font/google";
+import { site, siteUrl } from "@/data/site";
 import "./globals.css";
 
 const sans = Quicksand({
@@ -17,19 +18,106 @@ const display = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "1001 Women – The Forgotten Legacy of Muslim Civilisation",
-  description:
-    "Join the movement rediscovering overlooked women of science, medicine, scholarship, arts, leadership and public life from Muslim civilisation.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${site.name} – ${site.title}`,
+    template: `%s | ${site.name}`,
+  },
+  description: site.shortDescription,
+  applicationName: site.name,
+  keywords: [
+    "1001 Women",
+    "Muslim civilisation",
+    "women in science",
+    "Islamic history",
+    "1001 Inventions",
+    "children’s book",
+    "education",
+    "exhibition",
+  ],
+  authors: [{ name: "1001 Foundation" }],
+  creator: "1001 Foundation",
+  publisher: "1001 Foundation",
+  category: "education",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: [{ url: "/favicon.png", type: "image/png" }],
   },
   openGraph: {
-    title: "1001 Women",
-    description:
-      "The Forgotten Legacy of Muslim Civilisation — Join the Movement",
+    type: "website",
+    locale: "en_GB",
+    url: siteUrl,
+    siteName: site.name,
+    title: `${site.name} – ${site.title}`,
+    description: site.shortDescription,
+    images: [
+      {
+        url: "/images/logo.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} logo`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} – ${site.title}`,
+    description: site.shortDescription,
     images: ["/images/logo.jpg"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: site.name,
+      url: siteUrl,
+      logo: `${siteUrl}/images/logo-mark.webp`,
+      email: site.contactEmail,
+      parentOrganization: {
+        "@type": "Organization",
+        name: "1001 Foundation",
+        url: "https://1001foundation.com/",
+      },
+      description: site.shortDescription,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: site.name,
+      description: site.shortDescription,
+      publisher: { "@id": `${siteUrl}/#organization` },
+      inLanguage: "en",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/#webpage`,
+      url: siteUrl,
+      name: `${site.name} – ${site.title}`,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: { "@id": `${siteUrl}/#organization` },
+      description: site.shortDescription,
+      inLanguage: "en",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -39,7 +127,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sans.variable} ${display.variable}`}>{children}</body>
+      <body className={`${sans.variable} ${display.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

@@ -3,16 +3,20 @@
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { BookIcon } from "@/components/BookIcons";
+import { ThankYouModal } from "@/components/ThankYouModal";
 import { bookIncludes, preorderTiers, regions, site } from "@/data/site";
-import { saveInterestLocally } from "@/lib/local-interest";
+import { submitInterest } from "@/lib/submit-interest";
 
 export function KidsBook() {
-  const [status, setStatus] = useState<"idle" | "saved">("idle");
+  const [open, setOpen] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [interest, setInterest] = useState("");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const formEl = event.currentTarget;
+    const form = new FormData(formEl);
     const name = String(form.get("name") || "").trim();
     const email = String(form.get("email") || "").trim();
     const selectedInterest = String(form.get("interest") || interest).trim();
@@ -21,17 +25,29 @@ export function KidsBook() {
 
     if (!name || !email || !selectedInterest || !region || !consent) return;
 
-    saveInterestLocally({
-      type: "preorder",
-      name,
-      email,
-      interest: selectedInterest,
-      region,
-    });
+    setSending(true);
+    setError("");
 
-    setStatus("saved");
-    setInterest("");
-    event.currentTarget.reset();
+    try {
+      await submitInterest({
+        type: "preorder",
+        name,
+        email,
+        interest: selectedInterest,
+        region,
+      });
+      setInterest("");
+      formEl.reset();
+      setOpen(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Unable to send your interest right now.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -125,10 +141,9 @@ export function KidsBook() {
             </div>
 
             <form className="interest-form" onSubmit={onSubmit}>
-              {status === "saved" && (
-                <div className="form-success" role="status">
-                  Interest saved locally on this device. No database is connected
-                  yet — this is for local testing only.
+              {error && (
+                <div className="form-error" role="alert">
+                  {error}
                 </div>
               )}
               <input name="name" type="text" placeholder="Your name" required />
@@ -173,13 +188,15 @@ export function KidsBook() {
                   <a href="/privacy">Privacy Policy</a>.
                 </span>
               </label>
-              <button className="btn btn-primary" type="submit">
-                Register Your Interest
+              <button className="btn btn-primary" type="submit" disabled={sending}>
+                {sending ? "Sending…" : "Register Your Interest"}
               </button>
             </form>
           </div>
         </div>
       </div>
+
+      <ThankYouModal open={open} onClose={() => setOpen(false)} />
     </section>
   );
 }

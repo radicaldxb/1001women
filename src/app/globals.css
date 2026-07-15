@@ -1076,6 +1076,73 @@ section {
   text-align: left;
 }
 
+.form-error {
+  grid-column: 1 / -1;
+  padding: 14px 16px;
+  border: 1px solid rgba(150, 40, 40, 0.28);
+  border-radius: var(--radius);
+  background: rgba(255, 240, 240, 0.95);
+  color: #6b1c1c;
+  font-weight: 600;
+  text-align: left;
+}
+
+.thankyou-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(7, 26, 49, 0.55);
+  backdrop-filter: blur(2px);
+  animation: thankyou-fade 0.25s ease;
+}
+
+.thankyou-modal {
+  width: min(100%, 420px);
+  padding: 36px 32px;
+  border-radius: var(--radius);
+  background: #fffdf8;
+  color: var(--navy);
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(7, 26, 49, 0.25);
+  animation: thankyou-rise 0.3s ease;
+}
+
+.thankyou-modal h2 {
+  margin-bottom: 12px;
+}
+
+.thankyou-modal p {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.thankyou-modal .btn {
+  min-width: 140px;
+}
+
+@keyframes thankyou-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes thankyou-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .grid4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

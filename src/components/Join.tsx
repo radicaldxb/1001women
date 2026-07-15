@@ -2,15 +2,19 @@
 
 import { FormEvent, useState } from "react";
 import { StarSky } from "@/components/StarSky";
+import { ThankYouModal } from "@/components/ThankYouModal";
 import { interestRoles, site } from "@/data/site";
-import { saveInterestLocally } from "@/lib/local-interest";
+import { submitInterest } from "@/lib/submit-interest";
 
 export function Join() {
-  const [status, setStatus] = useState<"idle" | "saved">("idle");
+  const [open, setOpen] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const form = new FormData(event.currentTarget);
+    const formEl = event.currentTarget;
+    const form = new FormData(formEl);
     const name = String(form.get("name") || "").trim();
     const email = String(form.get("email") || "").trim();
     const role = String(form.get("role") || "").trim();
@@ -18,15 +22,22 @@ export function Join() {
 
     if (!name || !email || !role || !consent) return;
 
-    saveInterestLocally({
-      type: "join",
-      name,
-      email,
-      role,
-    });
+    setSending(true);
+    setError("");
 
-    setStatus("saved");
-    event.currentTarget.reset();
+    try {
+      await submitInterest({ type: "join", name, email, role });
+      formEl.reset();
+      setOpen(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Unable to send your interest right now.",
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -44,16 +55,17 @@ export function Join() {
         </div>
 
         <p className="join-links">
-          <a href={`mailto:${site.contactEmail}?subject=1001%20Women%20Movement%20Interest`}>
+          <a
+            href={`mailto:${site.contactEmail}?subject=1001%20Women%20Movement%20Interest`}
+          >
             Email the team
           </a>
         </p>
 
         <form className="join-form" onSubmit={onSubmit}>
-          {status === "saved" && (
-            <div className="form-success" role="status">
-              Interest saved locally on this device. No database is connected yet
-              — this is for local testing only.
+          {error && (
+            <div className="form-error" role="alert">
+              {error}
             </div>
           )}
           <input name="name" type="text" placeholder="Your name" required />
@@ -63,12 +75,7 @@ export function Join() {
             placeholder="Email address"
             required
           />
-          <select
-            className="join-role"
-            name="role"
-            required
-            defaultValue=""
-          >
+          <select className="join-role" name="role" required defaultValue="">
             <option value="" disabled>
               How do you want to take part?
             </option>
@@ -85,11 +92,13 @@ export function Join() {
               <a href="/privacy">Privacy Policy</a>.
             </span>
           </label>
-          <button className="btn btn-primary" type="submit">
-            Register Interest
+          <button className="btn btn-primary" type="submit" disabled={sending}>
+            {sending ? "Sending…" : "Register Interest"}
           </button>
         </form>
       </div>
+
+      <ThankYouModal open={open} onClose={() => setOpen(false)} />
     </section>
   );
 }
