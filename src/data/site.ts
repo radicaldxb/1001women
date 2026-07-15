@@ -13,8 +13,8 @@ export const site = {
   heroLead:
     "Discover overlooked women of science, medicine, learning, arts, leadership and public life, and bring their stories to children, classrooms, museums and online audiences around the world.",
   statement: "A lasting answer. A shared memory. A new generation inspired.",
-  contactEmail: "stephan@radical-thinking.net",
-  formRecipient: "stephan@radical-thinking.net",
+  contactEmail: "ahmed@1001inventions.com",
+  formRecipient: "ahmed@1001inventions.com",
   attribution:
     "1001 Women is an initiative of 1001 Foundation, the producer of 1001 Inventions. Produced and led by Ahmed Salim. Research foundation by FSTC.",
 } as const;
