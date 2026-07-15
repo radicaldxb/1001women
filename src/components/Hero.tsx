@@ -11,7 +11,7 @@ export function Hero() {
         <div className="hero-stage hero-stage-logo">
           <Image
             className="hero-mark"
-            src="/images/logo-mark.png"
+            src="/images/logo-mark.webp"
             alt={`${site.name} logo`}
             width={900}
             height={900}

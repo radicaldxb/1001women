@@ -46,21 +46,22 @@ export const credibility = [
 
 export const producerRoles = [
   {
-    role: "Research foundation",
-    name: "FSTC",
-    description:
-      "Historical research and source material behind the 1001 Women initiative.",
-  },
-  {
-    role: "Public initiative",
     name: "1001 Foundation",
+    logo: "/images/logos/1001-Foundation.webp",
     description:
       "The producer of 1001 Inventions and the organisation developing the wider movement, exhibition and public resources.",
   },
   {
-    role: "Initiative leadership",
-    name: "Ahmed Salim",
-    description: "Producer and lead for the 1001 Women initiative.",
+    name: "1001 Inventions",
+    logo: "/images/logos/1001-inventions.webp",
+    description:
+      "The global books, exhibitions and educational programmes that 1001 Women builds on.",
+  },
+  {
+    name: "FSTC",
+    logo: "/images/logos/FSTC.webp",
+    description:
+      "Historical research and source material behind the 1001 Women initiative.",
   },
 ] as const;
 

@@ -44,7 +44,7 @@ export function KidsBook() {
         <div className="book-feature">
           <div className="book-feature-media">
             <Image
-              src="/images/childrens-book.png"
+              src="/images/childrens-book.webp"
               alt={`${site.name} children’s book cover — ${site.title}`}
               width={1024}
               height={1024}

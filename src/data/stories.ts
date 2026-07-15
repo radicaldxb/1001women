@@ -12,21 +12,21 @@ export const featuredStories: Story[] = [
     summary:
       "A physician of northern Morocco known for her knowledge of medicines and treatments.",
     tag: "Medicine",
-    image: "/images/stories/medicine.png",
+    image: "/images/stories/medicine.webp",
   },
   {
     name: "Fatimah al-Fihriyyah",
     summary:
       "A philanthropist remembered for her role in establishing a major centre of learning in Fez.",
     tag: "Education",
-    image: "/images/stories/education.png",
+    image: "/images/stories/education.webp",
   },
   {
     name: "Walladah bint al-Mustakfi",
     summary:
       "A poet-princess of Córdoba remembered for poetry and literary gatherings.",
     tag: "Literature",
-    image: "/images/stories/literature.png",
+    image: "/images/stories/literature.webp",
   },
   {
     name: "Fatimah al-Samarqandiyyah",

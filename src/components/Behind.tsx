@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { producerRoles } from "@/data/site";
 
 export function Behind() {
@@ -30,18 +31,20 @@ export function Behind() {
           .
         </p>
 
-        <div className="role-rows" aria-label="Project roles">
+        <div className="role-cols" aria-label="Project partners">
           {producerRoles.map((item) => (
-            <div className="role-row" key={item.name}>
-              <div className="role-logo" aria-hidden>
-                <span>Logo</span>
+            <article className="role-col" key={item.name}>
+              <div className="role-logo">
+                <Image
+                  src={item.logo}
+                  alt={`${item.name} logo`}
+                  width={220}
+                  height={88}
+                />
               </div>
-              <div className="role-copy">
-                <small>{item.role}</small>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-              </div>
-            </div>
+              <h3>{item.name}</h3>
+              <p>{item.description}</p>
+            </article>
           ))}
         </div>
       </div>
