@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large local-only hero MP4 (use compressed .webm for deploy)
+/public/video/*.mp4
+/public/video/*.mov
+!/public/video/.gitkeep

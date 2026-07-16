@@ -1,11 +1,16 @@
 import Image from "next/image";
+import { HeroVideo } from "@/components/HeroVideo";
 import { StarSky } from "@/components/StarSky";
 import { site } from "@/data/site";
 
 export function Hero() {
   return (
     <section className="hero" id="top">
+      {/* Solid base — always-on fallback under poster + video */}
       <StarSky variant="hero" />
+
+      {/* Poster paints fast; compressed WebM fades in when ready */}
+      <HeroVideo />
 
       <div className="hero-content">
         <div className="hero-stage hero-stage-logo">

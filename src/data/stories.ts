@@ -5,6 +5,28 @@ export type Story = {
   image?: string;
 };
 
+/**
+ * Optional field icons for story cards.
+ * Flaticon classes, or "svg:pharmacy-symbol" for custom shapes
+ * not available in the open-source Uicons pack.
+ */
+export const storyTagIcons: Record<string, string> = {
+  Astronomy: "fi fi-ts-constellation",
+  Mathematics: "fi fi-tr-total",
+  Medicine: "fi fi-tr-mortar-pestle",
+  Literature: "fi fi-tr-catalog-magazine",
+  Calligraphy: "fi fi-tr-attribution-pen",
+  "Public works": "fi fi-tr-government-flag",
+  Nursing: "fi fi-tr-user-nurse",
+  Midwifery: "fi fi-tr-baby",
+  Education: "fi fi-tr-graduation-cap",
+  Scholarship: "fi fi-tr-e-learning",
+  Jurisprudence: "fi fi-tr-equality",
+  Leadership: "fi fi-tr-driver-woman",
+  Poetry: "fi fi-tr-quill-pen-story",
+  "Public life": "fi fi-tr-woman-head",
+};
+
 /** Featured portraits for the horizontal story scroller */
 export const featuredStories: Story[] = [
   {

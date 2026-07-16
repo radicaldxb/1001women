@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { featuredStories, stories, storyTags } from "@/data/stories";
+import { StoryFieldIcon } from "@/components/StoryFieldIcon";
+import {
+  featuredStories,
+  stories,
+  storyTagIcons,
+  storyTags,
+} from "@/data/stories";
 
 export function StoryShowcase() {
   const [activeTag, setActiveTag] = useState<string>("All");
@@ -70,13 +76,22 @@ export function StoryShowcase() {
           </div>
 
           <div className="story-box-grid">
-            {filtered.map((story) => (
-              <article className="story-box" key={story.name}>
-                <span className="story-box-tag">{story.tag}</span>
-                <h3>{story.name}</h3>
-                <p>{story.summary}</p>
-              </article>
-            ))}
+            {filtered.map((story) => {
+              const iconClass = storyTagIcons[story.tag];
+
+              return (
+                <article className="story-box" key={story.name}>
+                  {iconClass ? (
+                    <span className="story-box-icon" aria-hidden="true">
+                      <StoryFieldIcon name={iconClass} />
+                    </span>
+                  ) : null}
+                  <span className="story-box-tag">{story.tag}</span>
+                  <h3>{story.name}</h3>
+                  <p>{story.summary}</p>
+                </article>
+              );
+            })}
           </div>
 
           <p className="story-coming-soon">

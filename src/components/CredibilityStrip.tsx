@@ -3,6 +3,7 @@ import { credibility } from "@/data/site";
 export function CredibilityStrip() {
   return (
     <div className="credibility-strip" aria-label="Who is behind 1001 Women">
+      <div className="credibility-pattern" aria-hidden="true" />
       <div className="wrap credibility-grid">
         {credibility.map((item) => (
           <div className="credibility-item" key={item.value}>
