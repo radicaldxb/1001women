@@ -58,6 +58,7 @@ export function StoryShowcase() {
         </div>
 
         <div className="story-filter" aria-label="Filter by field">
+          <div className="ornament-divider" aria-hidden="true" />
           <div className="story-tags" role="tablist">
             {storyTags.map((tag) => (
               <button
@@ -100,6 +101,7 @@ export function StoryShowcase() {
         </div>
 
         <div className="story-research">
+          <div className="ornament-divider" aria-hidden="true" />
           <h3>Based on research, not myths</h3>
           <p>
             Behind the public movement is a major research project. Each story

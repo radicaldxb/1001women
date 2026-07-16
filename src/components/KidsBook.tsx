@@ -83,6 +83,8 @@ export function KidsBook() {
           </div>
         </div>
 
+        <div className="ornament-divider" aria-hidden="true" />
+
         <div className="plain book-follow">
           <p>
             Be among the first to receive the illustrated children’s book from
@@ -101,6 +103,8 @@ export function KidsBook() {
             and civilisation.
           </p>
 
+          <div className="ornament-divider" aria-hidden="true" />
+
           <div className="book-includes">
             <h3>What we plan to include</h3>
             <ul className="include-grid">
@@ -114,6 +118,8 @@ export function KidsBook() {
               ))}
             </ul>
           </div>
+
+          <div className="ornament-divider" aria-hidden="true" />
 
           <div className="interest-block" id="book-interest">
             <h3>Choose your pre-order interest</h3>

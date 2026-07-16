@@ -162,36 +162,48 @@ export const regions = [
 
 export const expressions = [
   {
-    icon: "exhibition",
-    title: "Immersive Exhibition",
-    description:
-      "A touring experience for museums, festivals, cultural centres and schools, using storytelling, media, maps, timelines and interactive moments.",
-    href: "#join",
-    linkLabel: "Bring it to your city",
-  },
-  {
-    icon: "stories",
     title: "Children’s Book",
     description:
       "A beautifully illustrated book for families and schools, introducing children to inspiring women through clear, age-appropriate stories.",
     href: "#kids-book",
     linkLabel: "Register your interest",
+    image: "/images/expressions/childrens-book-card.png",
+    imageAlt: "1001 Women children’s book cover",
+    tone: "blend",
+    imageFit: "cover",
   },
   {
-    icon: "school-pack",
+    title: "Immersive Exhibition",
+    description:
+      "A touring experience for museums, festivals, cultural centres and schools, using storytelling, media, maps, timelines and interactive moments.",
+    href: "#join",
+    linkLabel: "Bring it to your city",
+    image: "/images/expressions/exhibition-card.png",
+    imageAlt: "Immersive exhibition gallery visual",
+    tone: "plum",
+    imageFit: "cover",
+  },
+  {
     title: "Educator Guide",
     description:
       "Lesson ideas, assemblies, classroom activities, discussion questions and reading prompts for teachers, homeschoolers and community educators.",
     href: "#join",
     linkLabel: "Get teaching resources",
+    image: "/images/stories/education.webp",
+    imageAlt: "Education story visual",
+    tone: "navy",
+    imageFit: "cover",
   },
   {
-    icon: "creator",
     title: "Content Creator Guide",
     description:
       "Short stories, captions, scripts, images and guidance so creators can share the movement clearly, responsibly and confidently.",
     href: "#join",
     linkLabel: "Create with us",
+    image: "/images/expressions/creator-card.png",
+    imageAlt: "Content creator writing mosaic visual",
+    tone: "amber",
+    imageFit: "cover",
   },
 ] as const;
 
