@@ -42,8 +42,8 @@ export function StoryShowcase() {
                   <Image
                     src={story.image}
                     alt={`Illustrated scene for ${story.name}`}
-                    width={327}
-                    height={382}
+                    width={877}
+                    height={1024}
                     sizes="(max-width: 900px) 70vw, 240px"
                   />
                 ) : null}

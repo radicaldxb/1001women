@@ -1,14 +1,11 @@
-import { StarSky } from "@/components/StarSky";
 import { audiences } from "@/data/site";
 
 export function TakePart() {
   return (
-    <section className="take-part" id="take-part">
-      <StarSky variant="section" />
-
+    <section className="take-part section-divided" id="take-part">
       <div className="wrap take-part-content">
         <div className="section-head">
-          <div className="kicker take-part-kicker">Get involved</div>
+          <div className="kicker">Get involved</div>
           <h2>Choose how you want to take part</h2>
           <p>
             Whether you are a parent, teacher, creator, museum, sponsor or
@@ -23,7 +20,7 @@ export function TakePart() {
               <h3>{item.title}</h3>
               <p>{item.description}</p>
               <a href={item.href} className="audience-link">
-                {item.linkLabel} →
+                {item.linkLabel}
               </a>
             </article>
           ))}

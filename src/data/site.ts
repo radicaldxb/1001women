@@ -189,7 +189,7 @@ export const expressions = [
       "Lesson ideas, assemblies, classroom activities, discussion questions and reading prompts for teachers, homeschoolers and community educators.",
     href: "#join",
     linkLabel: "Get teaching resources",
-    image: "/images/stories/education.webp",
+    image: "/images/stories/featured-education.jpg",
     imageAlt: "Education story visual",
     tone: "navy",
     imageFit: "cover",
