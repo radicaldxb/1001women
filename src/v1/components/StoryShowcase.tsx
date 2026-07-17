@@ -2,13 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { StoryFieldIcon } from "@/components/StoryFieldIcon";
-import {
-  featuredStories,
-  stories,
-  storyTagIcons,
-  storyTags,
-} from "@/data/stories";
+import { featuredStories, stories, storyTags } from "@/v1/data/stories";
 
 export function StoryShowcase() {
   const [activeTag, setActiveTag] = useState<string>("All");
@@ -22,7 +16,7 @@ export function StoryShowcase() {
   );
 
   return (
-    <section id="stories" className="stories-section">
+    <section id="stories" className="stories-section section-divided">
       <div className="wrap">
         <div className="section-head">
           <div className="kicker">Story examples</div>
@@ -42,8 +36,8 @@ export function StoryShowcase() {
                   <Image
                     src={story.image}
                     alt={`Illustrated scene for ${story.name}`}
-                    width={877}
-                    height={1024}
+                    width={327}
+                    height={382}
                     sizes="(max-width: 900px) 70vw, 240px"
                   />
                 ) : null}
@@ -58,7 +52,6 @@ export function StoryShowcase() {
         </div>
 
         <div className="story-filter" aria-label="Filter by field">
-          <div className="ornament-divider" aria-hidden="true" />
           <div className="story-tags" role="tablist">
             {storyTags.map((tag) => (
               <button
@@ -77,22 +70,13 @@ export function StoryShowcase() {
           </div>
 
           <div className="story-box-grid">
-            {filtered.map((story) => {
-              const iconClass = storyTagIcons[story.tag];
-
-              return (
-                <article className="story-box" key={story.name}>
-                  {iconClass ? (
-                    <span className="story-box-icon" aria-hidden="true">
-                      <StoryFieldIcon name={iconClass} />
-                    </span>
-                  ) : null}
-                  <span className="story-box-tag">{story.tag}</span>
-                  <h3>{story.name}</h3>
-                  <p>{story.summary}</p>
-                </article>
-              );
-            })}
+            {filtered.map((story) => (
+              <article className="story-box" key={story.name}>
+                <span className="story-box-tag">{story.tag}</span>
+                <h3>{story.name}</h3>
+                <p>{story.summary}</p>
+              </article>
+            ))}
           </div>
 
           <p className="story-coming-soon">
@@ -101,7 +85,6 @@ export function StoryShowcase() {
         </div>
 
         <div className="story-research">
-          <div className="ornament-divider" aria-hidden="true" />
           <h3>Based on research, not myths</h3>
           <p>
             Behind the public movement is a major research project. Each story

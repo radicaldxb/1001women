@@ -2,6 +2,7 @@ import { About } from "@/components/About";
 import { Behind } from "@/components/Behind";
 import { Creating } from "@/components/Creating";
 import { CredibilityStrip } from "@/components/CredibilityStrip";
+import { ExamplesCarousel } from "@/components/ExamplesCarousel";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Join } from "@/components/Join";
@@ -22,6 +23,7 @@ export default function HomePage() {
         <KidsBook />
         <Creating />
         <TakePart />
+        <ExamplesCarousel />
         <StoryShowcase />
         <Join />
       </main>
