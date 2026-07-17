@@ -5,23 +5,23 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    src: "/images/examples/exhibition-1.png",
+    src: "/images/examples/exhibition-1.webp",
     alt: "Concept view of a 1001 Women immersive exhibition hall",
   },
   {
-    src: "/images/examples/Exhibition-2.png",
+    src: "/images/examples/exhibition-2.webp",
     alt: "Exhibition concept visual for 1001 Women",
   },
   {
-    src: "/images/examples/Statue.png",
+    src: "/images/examples/Statue.webp",
     alt: "Sculpture concept visual for 1001 Women",
   },
   {
-    src: "/images/examples/movie.png",
+    src: "/images/examples/movie.webp",
     alt: "Film and media concept visual for 1001 Women",
   },
   {
-    src: "/images/examples/younggirl.png",
+    src: "/images/examples/younggirl.webp",
     alt: "Young reader concept visual for 1001 Women",
   },
 ] as const;

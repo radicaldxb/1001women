@@ -111,7 +111,13 @@ export function KidsBook() {
               {bookIncludes.map((item) => (
                 <li key={item.title}>
                   <span className="include-icon">
-                    <BookIcon name={item.icon} />
+                    <Image
+                      src={item.image}
+                      alt={item.imageAlt}
+                      width={250}
+                      height={250}
+                      sizes="88px"
+                    />
                   </span>
                   <span>{item.title}</span>
                 </li>

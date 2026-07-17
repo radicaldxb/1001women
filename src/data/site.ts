@@ -98,27 +98,33 @@ export const bookFacts = [
 export const bookIncludes = [
   {
     title: "Illustrated stories of women pioneers",
-    icon: "stories",
-  },
-  {
-    title: "Simple maps and timelines",
-    icon: "maps",
+    image: "/images/icons/woman.png",
+    imageAlt: "Women pioneers",
   },
   {
     title: "Short “more to discover” profiles",
-    icon: "profiles",
-  },
-  {
-    title: "Parent and teacher discussion prompts",
-    icon: "discussion",
+    image: "/images/icons/profile.png",
+    imageAlt: "Story profiles",
   },
   {
     title: "Glossary of helpful words",
-    icon: "glossary",
+    image: "/images/icons/glossary.png",
+    imageAlt: "Glossary",
+  },
+  {
+    title: "Simple maps and timelines",
+    image: "/images/icons/map.png",
+    imageAlt: "Maps and timelines",
+  },
+  {
+    title: "Parent and teacher discussion prompts",
+    image: "/images/icons/parent.png",
+    imageAlt: "Parent and teacher prompts",
   },
   {
     title: "Activities for classrooms and homes",
-    icon: "activities",
+    image: "/images/icons/activities.png",
+    imageAlt: "Classroom and home activities",
   },
 ] as const;
 
@@ -167,7 +173,7 @@ export const expressions = [
       "A beautifully illustrated book for families and schools, introducing children to inspiring women through clear, age-appropriate stories.",
     href: "#kids-book",
     linkLabel: "Register your interest",
-    image: "/images/expressions/childrens-book-card.png",
+    image: "/images/expressions/childrens-book-card.webp",
     imageAlt: "1001 Women children’s book cover",
     tone: "blend",
     imageFit: "cover",
@@ -178,7 +184,7 @@ export const expressions = [
       "A touring experience for museums, festivals, cultural centres and schools, using storytelling, media, maps, timelines and interactive moments.",
     href: "#join",
     linkLabel: "Bring it to your city",
-    image: "/images/expressions/exhibition-card.png",
+    image: "/images/expressions/exhibition-card.webp",
     imageAlt: "Immersive exhibition gallery visual",
     tone: "plum",
     imageFit: "cover",
@@ -189,7 +195,7 @@ export const expressions = [
       "Lesson ideas, assemblies, classroom activities, discussion questions and reading prompts for teachers, homeschoolers and community educators.",
     href: "#join",
     linkLabel: "Get teaching resources",
-    image: "/images/stories/featured-education.jpg",
+    image: "/images/stories/education-2.webp",
     imageAlt: "Education story visual",
     tone: "navy",
     imageFit: "cover",
@@ -200,7 +206,7 @@ export const expressions = [
       "Short stories, captions, scripts, images and guidance so creators can share the movement clearly, responsibly and confidently.",
     href: "#join",
     linkLabel: "Create with us",
-    image: "/images/expressions/creator-card.png",
+    image: "/images/expressions/creator-card.webp",
     imageAlt: "Content creator writing mosaic visual",
     tone: "amber",
     imageFit: "cover",

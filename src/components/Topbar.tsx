@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { navLinks } from "@/data/site";
+import { navLinks, site } from "@/data/site";
 
 export function Topbar() {
   const [open, setOpen] = useState(false);
@@ -24,6 +24,9 @@ export function Topbar() {
           className={`navlinks${open ? " open" : ""}`}
           aria-label="Primary"
         >
+          <a href="#top" onClick={() => setOpen(false)}>
+            {site.name}
+          </a>
           {navLinks.map((link) => (
             <a
               key={link.href}

@@ -1,26 +1,35 @@
+import Image from "next/image";
 import { orgLinks, site } from "@/data/site";
 
 export function Footer() {
   return (
     <footer className="footer">
       <div className="wrap">
-        <div>
-          <strong>{site.name}</strong> is an
-          initiative of{" "}
-          <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
-            1001 Foundation
-          </a>
-          , the producer of{" "}
-          <a href={orgLinks.inventions} target="_blank" rel="noopener noreferrer">
-            1001 Inventions
-          </a>
-          .
-          <br />
-          Produced and led by{" "}
-          <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
-            Ahmed Salim
-          </a>
-          . Research foundation by FSTC.
+        <div className="footer-brand">
+          <Image
+            className="footer-logo"
+            src="/favicon.png"
+            alt={`${site.name} logo`}
+            width={72}
+            height={72}
+          />
+          <div>
+            <strong>{site.name}</strong> is an initiative of{" "}
+            <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
+              1001 Foundation
+            </a>
+            , the producer of{" "}
+            <a href={orgLinks.inventions} target="_blank" rel="noopener noreferrer">
+              1001 Inventions
+            </a>
+            .
+            <br />
+            Produced and led by{" "}
+            <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
+              Ahmed Salim
+            </a>
+            . Research foundation by FSTC.
+          </div>
         </div>
         <div>
           {site.title}
