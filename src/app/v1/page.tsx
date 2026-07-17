@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { About } from "@/v1/components/About";
 import { Behind } from "@/v1/components/Behind";
 import { Creating } from "@/v1/components/Creating";
@@ -30,7 +31,7 @@ export default function V1ArchivePage() {
     <div className="site-v1">
       <div className="v1-archive-banner">
         <span>Archived initial version</span>
-        <a href="/">View current site →</a>
+        <Link href="/">View current site →</Link>
       </div>
       <div className="site">
         <Topbar />
