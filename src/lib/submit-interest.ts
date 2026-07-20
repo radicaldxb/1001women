@@ -21,7 +21,7 @@ async function deliverWithWeb3Forms(payload: InterestPayload) {
   const subject =
     payload.type === "preorder"
       ? `1001 Women – Children’s book interest (${payload.interest})`
-      : `1001 Women – Movement interest (${payload.role})`;
+      : `1001 Women – Take part`;
 
   const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
@@ -42,7 +42,7 @@ async function deliverWithWeb3Forms(payload: InterestPayload) {
       message:
         payload.type === "preorder"
           ? `Pre-order interest: ${payload.interest}\nRegion: ${payload.region}`
-          : `How they want to take part: ${payload.role}`,
+          : "Take part registration",
     }),
     signal: AbortSignal.timeout(15000),
   });

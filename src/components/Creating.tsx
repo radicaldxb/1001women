@@ -20,10 +20,10 @@ export function Creating() {
     <section id="creating" className="section-divided">
       <div className="wrap">
         <div className="section-head">
-          <div className="kicker">Exhibition & Guides</div>
-          <h2>More ways to bring the stories to life</h2>
+          <div className="kicker">Programmes</div>
+          <h2>Experiences that bring the stories to life</h2>
           <p>
-            Alongside the children’s book, the movement will reach people through
+            Alongside a children’s book, 1001 Women will reach people through
             experiences they can visit, resources they can teach with and stories
             they can share.
           </p>

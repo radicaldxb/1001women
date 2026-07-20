@@ -23,8 +23,8 @@ export function TakePart() {
           <h2>Choose how you want to take part</h2>
           <p>
             Whether you are a parent, teacher, creator, museum, sponsor or
-            publisher, there is a clear way to help these stories reach more
-            people.
+            publisher, there is a clear way to help 1001 Women bring these
+            stories to more people.
           </p>
         </div>
 

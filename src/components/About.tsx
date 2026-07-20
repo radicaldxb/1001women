@@ -21,15 +21,17 @@ export function About() {
           responsibly.
         </p>
         <p>
-          <strong>This initiative aims to answer that question for good:</strong>{" "}
+          <strong>
+            The 1001 Women initiative aims to answer that question for good:
+          </strong>{" "}
           women were scholars, healers, scientists, teachers, artists, scribes,
           patrons, leaders, businesswomen, public servants and builders of
           institutions.
         </p>
         <p>
           By bringing these stories into books, exhibitions, classrooms and
-          online platforms, the movement helps children and adults rediscover
-          role models with names, places, stories and evidence.
+          online platforms, 1001 Women helps children and adults rediscover role
+          models with names, places, stories and evidence.
         </p>
       </div>
     </section>

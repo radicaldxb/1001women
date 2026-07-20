@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import { ThankYouModal } from "@/components/ThankYouModal";
-import { interestRoles, site } from "@/data/site";
 import { submitInterest } from "@/lib/submit-interest";
 
 export function Join() {
@@ -16,16 +15,20 @@ export function Join() {
     const form = new FormData(formEl);
     const name = String(form.get("name") || "").trim();
     const email = String(form.get("email") || "").trim();
-    const role = String(form.get("role") || "").trim();
     const consent = form.get("consent");
 
-    if (!name || !email || !role || !consent) return;
+    if (!name || !email || !consent) return;
 
     setSending(true);
     setError("");
 
     try {
-      await submitInterest({ type: "join", name, email, role });
+      await submitInterest({
+        type: "join",
+        name,
+        email,
+        role: "Take part",
+      });
       formEl.reset();
       setOpen(true);
     } catch (err) {
@@ -40,27 +43,18 @@ export function Join() {
   }
 
   return (
-    <section className="join" id="join">
+    <section className="join section-divided" id="join">
       <div className="wrap join-content">
-        <div className="ornament-divider join-ornament" aria-hidden="true" />
-
         <div className="join-panel">
           <div className="section-head">
-            <div className="kicker join-kicker">Join the movement</div>
-            <h2>Join the 1001 Women movement</h2>
+            <div className="kicker">Take part</div>
+            <h2>TAKE PART</h2>
             <p>
-              Help bring overlooked women of Muslim civilisation into homes,
-              schools, museums, festivals, online platforms and public memory.
+              Join the 1001 Women movement and help bring overlooked women of
+              Muslim civilisation into homes, schools, museums, festivals,
+              online platforms and public memory.
             </p>
           </div>
-
-          <p className="join-links">
-            <a
-              href={`mailto:${site.contactEmail}?subject=1001%20Women%20Movement%20Interest`}
-            >
-              Email the team
-            </a>
-          </p>
 
           <form className="join-form" onSubmit={onSubmit}>
             {error && (
@@ -75,16 +69,6 @@ export function Join() {
               placeholder="Email address"
               required
             />
-            <select className="join-role" name="role" required defaultValue="">
-              <option value="" disabled>
-                How do you want to take part?
-              </option>
-              {interestRoles.map((role) => (
-                <option key={role} value={role}>
-                  {role}
-                </option>
-              ))}
-            </select>
             <label className="consent">
               <input name="consent" type="checkbox" required />
               <span>
@@ -93,7 +77,7 @@ export function Join() {
               </span>
             </label>
             <button className="btn btn-primary" type="submit" disabled={sending}>
-              {sending ? "Sending…" : "Register Interest"}
+              {sending ? "Sending…" : "TAKE PART"}
             </button>
           </form>
         </div>

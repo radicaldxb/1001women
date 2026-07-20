@@ -22,15 +22,15 @@ export function StoryShowcase() {
   );
 
   return (
-    <section id="stories" className="stories-section">
+    <section id="stories" className="stories-section section-divided">
       <div className="wrap">
         <div className="section-head">
-          <div className="kicker">Story examples</div>
-          <h2>Meet some of the women</h2>
+          <div className="kicker">The Legacy</div>
+          <h2>Restoring the Legacy of more than 300 Women</h2>
           <p>
-            These examples show the breadth of the research and the range of
-            stories that can become book spreads, exhibition moments, lessons,
-            short videos and public talks.
+            These 1001 Women examples show the breadth of the research and the
+            range of stories that can become book spreads, exhibition moments,
+            lessons, short videos and public talks.
           </p>
         </div>
 

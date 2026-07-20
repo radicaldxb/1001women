@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { orgLinks, site } from "@/data/site";
+import { orgLinks, site, socialLinks } from "@/data/site";
 
 export function Footer() {
   return (
@@ -14,6 +14,10 @@ export function Footer() {
             height={72}
           />
           <div>
+            <strong>
+              {site.name} – {site.title}
+            </strong>
+            <br />
             <strong>{site.name}</strong> is an initiative of{" "}
             <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
               1001 Foundation
@@ -31,13 +35,26 @@ export function Footer() {
             . Research foundation by FSTC.
           </div>
         </div>
-        <div>
-          {site.title}
-          <br />©{" "}
-          <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
-            1001 Foundation
-          </a>{" "}
-          · <a href="/privacy">Privacy Policy</a>
+        <div className="footer-meta">
+          <div className="footer-social" aria-label="1001 Inventions social links">
+            {socialLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <div>
+            ©{" "}
+            <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
+              1001 Foundation
+            </a>{" "}
+            · <a href="/privacy">Privacy Policy</a>
+          </div>
         </div>
       </div>
     </footer>

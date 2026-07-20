@@ -5,13 +5,15 @@ export const siteUrl = (
 export const site = {
   name: "1001 Women",
   title: "The Forgotten Legacy of Muslim Civilisation",
-  invitation: "Join the Movement",
+  invitation: "Take Part",
   description:
     "Help answer a question too often left unanswered: what was the role of women pioneers in Muslim civilisation? Rediscover overlooked women of science, medicine, learning, arts, leadership and public life — and bring their stories to children, classrooms, museums and online audiences around the world.",
   shortDescription:
-    "Join the movement rediscovering overlooked women of science, medicine, scholarship, arts, leadership and public life from Muslim civilisation.",
-  heroLead:
-    "Discover overlooked women of science, medicine, learning, arts, leadership and public life, and bring their stories to children, classrooms, museums and online audiences around the world.",
+    "1001 Women is the world’s first global initiative restoring awareness of overlooked women from Muslim civilisation — through educational campaigns, books, exhibitions and digital media.",
+  heroLead: [
+    "1001 Women is the world’s first global initiative to restore awareness of the overlooked contributions of more than 300 women from Muslim civilisation to science, medicine, learning, arts, leadership and public life.",
+    "Join us and take part in bringing their stories into mainstream public awareness through educational campaigns, books, exhibitions and digital media.",
+  ],
   statement: "A lasting answer. A shared memory. A new generation inspired.",
   contactEmail: "ahmed@1001inventions.com",
   formRecipient: "ahmed@1001inventions.com",
@@ -20,11 +22,10 @@ export const site = {
 } as const;
 
 export const navLinks = [
+  { href: "#stories", label: "The Legacy" },
   { href: "#about", label: "Why It Matters" },
   { href: "#behind", label: "Who Are We" },
-  { href: "#kids-book", label: "Children’s Book" },
-  { href: "#creating", label: "Exhibition & Guides" },
-  { href: "#take-part", label: "Get Involved" },
+  { href: "#creating", label: "Programmes" },
 ] as const;
 
 export const orgLinks = {
@@ -33,6 +34,21 @@ export const orgLinks = {
   fstc: "https://www.fstc.org.uk/",
   ahmedSalim: "https://en.wikipedia.org/wiki/Ahmed_Salim",
 } as const;
+
+export const socialLinks = [
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/user/1001Inventions",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/1001inventions/",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/1001inventions",
+  },
+] as const;
 
 export const credibility = [
   {
@@ -171,8 +187,8 @@ export const expressions = [
     title: "Children’s Book",
     description:
       "A beautifully illustrated book for families and schools, introducing children to inspiring women through clear, age-appropriate stories.",
-    href: "#kids-book",
-    linkLabel: "Register your interest",
+    href: "#join",
+    linkLabel: "Take part",
     image: "/images/expressions/childrens-book-card.webp",
     imageAlt: "1001 Women children’s book cover",
     tone: "blend",
@@ -181,7 +197,7 @@ export const expressions = [
   {
     title: "Immersive Exhibition",
     description:
-      "A touring experience for museums, festivals, cultural centres and schools, using storytelling, media, maps, timelines and interactive moments.",
+      "A 1001 Women touring experience for museums, festivals, cultural centres and schools, using storytelling, media, maps, timelines and interactive moments.",
     href: "#join",
     linkLabel: "Bring it to your city",
     image: "/images/expressions/exhibition-card.webp",
@@ -192,7 +208,7 @@ export const expressions = [
   {
     title: "Educator Guide",
     description:
-      "Lesson ideas, assemblies, classroom activities, discussion questions and reading prompts for teachers, homeschoolers and community educators.",
+      "1001 Women lesson ideas, assemblies, classroom activities, discussion questions and reading prompts for teachers, homeschoolers and community educators.",
     href: "#join",
     linkLabel: "Get teaching resources",
     image: "/images/stories/education-2.webp",
@@ -203,7 +219,7 @@ export const expressions = [
   {
     title: "Content Creator Guide",
     description:
-      "Short stories, captions, scripts, images and guidance so creators can share the movement clearly, responsibly and confidently.",
+      "Short stories, captions, scripts, images and guidance so creators can share 1001 Women clearly, responsibly and confidently.",
     href: "#join",
     linkLabel: "Create with us",
     image: "/images/expressions/creator-card.webp",

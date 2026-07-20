@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Quicksand } from "next/font/google";
+import Script from "next/script";
 import { site, siteUrl } from "@/data/site";
 import "./globals.css";
 
@@ -133,6 +134,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        {/* Elfsight AI Chatbot | 1001 Women Chat */}
+        <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
+        <div
+          className="elfsight-app-021f2ef8-ca3e-4571-bd98-e9ed23427864"
+          data-elfsight-app-lazy
+        />
       </body>
     </html>
   );

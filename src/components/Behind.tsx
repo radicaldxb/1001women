@@ -12,9 +12,9 @@ export function Behind() {
             1001 Women is an initiative of 1001 Foundation, the producer of 1001
             Inventions.
           </strong>{" "}
-          It builds on experience in transforming the history and heritage of
-          Muslim civilisation into books, exhibitions, films, educational
-          programmes and live public experiences.
+          1001 Women builds on experience in transforming the history and
+          heritage of Muslim civilisation into books, exhibitions, films,
+          educational programmes and live public experiences.
         </p>
         <p>
           The 1001 Women initiative is{" "}

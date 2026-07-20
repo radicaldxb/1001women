@@ -6,7 +6,6 @@ import { ExamplesCarousel } from "@/components/ExamplesCarousel";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Join } from "@/components/Join";
-import { KidsBook } from "@/components/KidsBook";
 import { StoryShowcase } from "@/components/StoryShowcase";
 import { TakePart } from "@/components/TakePart";
 import { Topbar } from "@/components/Topbar";
@@ -18,14 +17,13 @@ export default function HomePage() {
       <main>
         <Hero />
         <CredibilityStrip />
+        <Join />
         <About />
         <Behind />
-        <KidsBook />
+        <StoryShowcase />
         <Creating />
         <TakePart />
         <ExamplesCarousel />
-        <StoryShowcase />
-        <Join />
       </main>
       <Footer />
     </div>

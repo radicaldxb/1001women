@@ -6,10 +6,7 @@ import { site } from "@/data/site";
 export function Hero() {
   return (
     <section className="hero" id="top">
-      {/* Solid base — always-on fallback under poster + video */}
       <StarSky variant="hero" />
-
-      {/* Poster paints fast; compressed WebM fades in when ready */}
       <HeroVideo />
 
       <div className="hero-content">
@@ -29,7 +26,11 @@ export function Hero() {
           {site.title}
         </p>
 
-        <p className="hero-lead hero-stage hero-stage-lead">{site.heroLead}</p>
+        <div className="hero-lead hero-stage hero-stage-lead">
+          {site.heroLead.map((paragraph) => (
+            <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+          ))}
+        </div>
 
         <a className="hero-explore hero-stage hero-stage-explore" href="#about">
           <span>Explore more</span>

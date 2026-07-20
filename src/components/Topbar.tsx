@@ -36,12 +36,8 @@ export function Topbar() {
               {link.label}
             </a>
           ))}
-          <a
-            className="button"
-            href="#kids-book"
-            onClick={() => setOpen(false)}
-          >
-            Register Interest
+          <a className="button" href="#join" onClick={() => setOpen(false)}>
+            TAKE PART
           </a>
         </nav>
       </div>
