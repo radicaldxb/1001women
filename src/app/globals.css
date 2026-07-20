@@ -2635,6 +2635,21 @@ section {
   font-weight: 600;
 }
 
+.privacy-email-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.privacy-email-image {
+  display: inline-block;
+  width: auto;
+  height: 1.05em;
+  max-width: 100%;
+  vertical-align: -0.12em;
+}
+
 .privacy-back {
   margin-top: 40px;
   padding-top: 24px;

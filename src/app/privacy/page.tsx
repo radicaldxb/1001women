@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { orgLinks, site } from "@/data/site";
@@ -11,7 +12,6 @@ export const metadata: Metadata = {
 };
 
 const updated = "20 July 2026";
-const legalEmail = "info@1001.org";
 
 export default function PrivacyPage() {
   return (
@@ -343,7 +343,16 @@ export default function PrivacyPage() {
           <br />
           UK Company no: {site.companyNumber}
           <br />
-          Email: {legalEmail}
+          <span className="privacy-email-line">
+            Email:{" "}
+            <Image
+              className="privacy-email-image"
+              src="/images/legal/privacy-contact-email.svg"
+              alt="Privacy enquiries email address"
+              width={158}
+              height={22}
+            />
+          </span>
         </p>
         <p>
           See also our{" "}
