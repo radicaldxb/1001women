@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { thankYouCopy } from "@/lib/submit-interest";
 
 type ThankYouModalProps = {
@@ -26,9 +27,9 @@ export function ThankYouModal({ open, onClose }: ThankYouModalProps) {
     };
   }, [open, onClose]);
 
-  if (!open) return null;
+  if (!open || typeof document === "undefined") return null;
 
-  return (
+  return createPortal(
     <div
       className="thankyou-backdrop"
       role="presentation"
@@ -47,6 +48,7 @@ export function ThankYouModal({ open, onClose }: ThankYouModalProps) {
           Close
         </button>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

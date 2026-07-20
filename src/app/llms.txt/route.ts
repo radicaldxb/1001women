@@ -13,6 +13,7 @@ ${site.name} is an initiative of 1001 Foundation, the producer of 1001 Invention
 
 - [Home](${siteUrl}/): Main landing page with storytelling, children’s book interest, exhibition plans and join options
 - [Privacy Policy](${siteUrl}/privacy): How interest registrations and contact details are handled
+- [Terms and Conditions](${siteUrl}/terms): Terms of use for this website
 
 ## Organizations
 

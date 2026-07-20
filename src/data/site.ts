@@ -17,15 +17,17 @@ export const site = {
   statement: "A lasting answer. A shared memory. A new generation inspired.",
   contactEmail: "ahmed@1001inventions.com",
   formRecipient: "ahmed@1001inventions.com",
+  companyName: "1001 Foundation (UK)",
+  companyNumber: "11321847",
   attribution:
-    "1001 Women is an initiative of 1001 Foundation, the producer of 1001 Inventions. Produced and led by Ahmed Salim. Research foundation by FSTC.",
+    "1001 Women is an initiative of 1001 Foundation (UK), the producer of 1001 Inventions. Research foundation by FSTC.",
 } as const;
 
 export const navLinks = [
   { href: "#stories", label: "The Legacy" },
   { href: "#about", label: "Why It Matters" },
-  { href: "#behind", label: "Who Are We" },
   { href: "#creating", label: "Programmes" },
+  { href: "#behind", label: "Who Are We" },
 ] as const;
 
 export const orgLinks = {
@@ -62,9 +64,9 @@ export const credibility = [
     href: orgLinks.inventions,
   },
   {
-    label: "Produced and led by",
-    value: "Ahmed Salim",
-    href: orgLinks.ahmedSalim,
+    label: "Historical Research",
+    value: "FSTC",
+    href: orgLinks.fstc,
   },
 ] as const;
 

@@ -20,17 +20,11 @@ export function Footer() {
             <br />
             <strong>{site.name}</strong> is an initiative of{" "}
             <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
-              1001 Foundation
+              1001 Foundation (UK)
             </a>
             , the producer of{" "}
             <a href={orgLinks.inventions} target="_blank" rel="noopener noreferrer">
               1001 Inventions
-            </a>
-            .
-            <br />
-            Produced and led by{" "}
-            <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
-              Ahmed Salim
             </a>
             . Research foundation by FSTC.
           </div>
@@ -54,6 +48,8 @@ export function Footer() {
               1001 Foundation
             </a>{" "}
             · <a href="/privacy">Privacy Policy</a>
+            {" · "}
+            <a href="/terms">Terms</a>
           </div>
         </div>
       </div>

@@ -197,7 +197,8 @@ export function KidsBook() {
                 <input name="consent" type="checkbox" required />
                 <span>
                   I agree to receive updates by email and to the{" "}
-                  <a href="/privacy">Privacy Policy</a>.
+                  <a href="/privacy">Privacy Policy</a> and{" "}
+                  <a href="/terms">Terms and Conditions</a>.
                 </span>
               </label>
               <button className="btn btn-primary" type="submit" disabled={sending}>

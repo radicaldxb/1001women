@@ -19,11 +19,11 @@ export default function HomePage() {
         <CredibilityStrip />
         <Join />
         <About />
-        <Behind />
         <StoryShowcase />
         <Creating />
         <TakePart />
         <ExamplesCarousel />
+        <Behind />
       </main>
       <Footer />
     </div>
