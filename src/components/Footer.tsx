@@ -53,7 +53,11 @@ export function Footer() {
             <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
               1001 Foundation
             </a>{" "}
-            · <a href="/privacy">Privacy Policy</a>
+            · <a href="/faq">FAQ</a>
+            {" · "}
+            <a href="/llm">AI overview</a>
+            {" · "}
+            <a href="/privacy">Privacy</a>
             {" · "}
             <a href="/terms">Terms</a>
           </div>

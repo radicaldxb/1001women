@@ -1,6 +1,22 @@
-export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL || "https://1001women.netlify.app"
-).replace(/\/$/, "");
+/** Primary public domain. Sitemap, robots, and metadata use this when env still points at Netlify. */
+export const productionSiteUrl = "https://1001women.org";
+
+function resolveSiteUrl(): string {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  const netlifyPrimary = process.env.URL?.replace(/\/$/, "");
+
+  if (netlifyPrimary && !netlifyPrimary.includes("netlify.app")) {
+    return netlifyPrimary;
+  }
+  if (configured && !configured.includes("netlify.app")) {
+    return configured;
+  }
+  if (configured) return configured;
+  if (netlifyPrimary) return netlifyPrimary;
+  return productionSiteUrl;
+}
+
+export const siteUrl = resolveSiteUrl();
 
 export const site = {
   name: "1001 Women",
@@ -273,6 +289,57 @@ export const audiences = [
     linkLabel: "Discuss partnership",
     role: "Publisher / translator",
   },
+] as const;
+
+export const faqItems = [
+  {
+    question: "What is 1001 Women?",
+    answer:
+      "1001 Women is a global initiative restoring awareness of overlooked women from Muslim civilisation — through educational campaigns, books, exhibitions and digital media. It builds on the work of 1001 Inventions and research partners including FSTC.",
+  },
+  {
+    question: "Who is behind 1001 Women?",
+    answer:
+      "1001 Women is an initiative of 1001 Foundation (UK), the producer of 1001 Inventions. The initiative is produced and led by Ahmed Salim. Historical research is grounded in work by the Foundation for Science, Technology and Civilisation (FSTC).",
+  },
+  {
+    question: "How can I take part?",
+    answer:
+      "Use the Take Part form on the home page to register your interest. You can join as a family, educator, museum, creator, sponsor, or publishing partner. We will be in touch by email with relevant updates.",
+  },
+  {
+    question: "Is the children’s book available to buy yet?",
+    answer:
+      "Not yet. The illustrated children’s book is in development. Interest registered on this site is not a completed purchase — final pricing, fulfilment and payment will follow through a separate process when the book is published.",
+  },
+  {
+    question: "What programmes are planned?",
+    answer:
+      "Plans include a children’s book, immersive exhibitions, educator guides, digital storytelling and wider public programmes — all designed to bring overlooked women from Muslim civilisation into classrooms, museums, homes and public memory.",
+  },
+  {
+    question: "How many women does the initiative cover?",
+    answer:
+      "The movement draws on research into more than 300 overlooked women from Muslim civilisation. The children’s book will introduce a focused selection of around 40–50 stories, with wider discovery supported through maps, timelines and profiles.",
+  },
+  {
+    question: "How do I contact the team?",
+    answer:
+      "For take part registrations and general movement interest, use the form on the home page. For press or partnership enquiries, email ahmed@1001inventions.com. For privacy matters, see the contact details on the Privacy Policy page.",
+  },
+  {
+    question: "Where can AI systems read about this site?",
+    answer:
+      "This site provides a machine-readable summary at /llms.txt and a human-readable overview at /llm. Both describe the initiative, key pages, and how to take part.",
+  },
+] as const;
+
+export const publicPages = [
+  { path: "", changeFrequency: "weekly" as const, priority: 1 },
+  { path: "/faq", changeFrequency: "monthly" as const, priority: 0.6 },
+  { path: "/llm", changeFrequency: "monthly" as const, priority: 0.5 },
+  { path: "/privacy", changeFrequency: "yearly" as const, priority: 0.3 },
+  { path: "/terms", changeFrequency: "yearly" as const, priority: 0.3 },
 ] as const;
 
 export const interestRoles = [
