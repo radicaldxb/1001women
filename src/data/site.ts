@@ -1,5 +1,5 @@
 /** Primary public domain. Sitemap, robots, and metadata use this when env still points at Netlify. */
-export const productionSiteUrl = "https://1001women.org";
+export const productionSiteUrl = "https://1001women.com";
 
 function resolveSiteUrl(): string {
   const configured = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
