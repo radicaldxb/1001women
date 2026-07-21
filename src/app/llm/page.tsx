@@ -95,19 +95,19 @@ export default function LlmPage() {
         <h2>Home page sections</h2>
         <ul>
           <li>
-            <a href="/#join">Take Part</a> — register interest
+            <Link href="/#join">Take Part</Link> — register interest
           </li>
           <li>
-            <a href="/#about">Why It Matters</a>
+            <Link href="/#about">Why It Matters</Link>
           </li>
           <li>
-            <a href="/#stories">The Legacy</a>
+            <Link href="/#stories">The Legacy</Link>
           </li>
           <li>
-            <a href="/#creating">Programmes</a>
+            <Link href="/#creating">Programmes</Link>
           </li>
           <li>
-            <a href="/#behind">Who Are We</a>
+            <Link href="/#behind">Who Are We</Link>
           </li>
         </ul>
 
