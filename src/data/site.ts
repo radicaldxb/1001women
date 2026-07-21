@@ -342,6 +342,11 @@ export const publicPages = [
   { path: "/terms", changeFrequency: "yearly" as const, priority: 0.3 },
 ] as const;
 
+/** Machine-readable discovery files included in sitemap.xml for crawlers. */
+export const discoveryFiles = [
+  { path: "/llms.txt", changeFrequency: "monthly" as const, priority: 0.4 },
+] as const;
+
 export const interestRoles = [
   "Children’s book updates",
   "Families / book updates",

@@ -46,6 +46,9 @@ export const metadata: Metadata = {
   category: "education",
   alternates: {
     canonical: "/",
+    types: {
+      "text/plain": [{ url: "/llms.txt", title: "LLM site summary" }],
+    },
   },
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],

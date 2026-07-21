@@ -57,6 +57,8 @@ export function Footer() {
             {" · "}
             <a href="/llm">AI overview</a>
             {" · "}
+            <a href="/llms.txt">llms.txt</a>
+            {" · "}
             <a href="/privacy">Privacy</a>
             {" · "}
             <a href="/terms">Terms</a>
