@@ -12,8 +12,8 @@ export function ChatWidget() {
 
   useEffect(() => {
     let cancelled = false;
-    let idleId = 0;
-    let timeoutId = 0;
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
 
     const enable = () => {
       if (!cancelled) setReady(true);
@@ -29,7 +29,7 @@ export function ChatWidget() {
       if ("requestIdleCallback" in window) {
         idleId = window.requestIdleCallback(enable, { timeout: 6000 });
       } else {
-        timeoutId = window.setTimeout(enable, 4000);
+        timeoutId = setTimeout(enable, 4000);
       }
     };
 
@@ -45,10 +45,10 @@ export function ChatWidget() {
       window.removeEventListener("keydown", onInteract);
       window.removeEventListener("scroll", onInteract);
       window.removeEventListener("load", schedule);
-      if (idleId && "cancelIdleCallback" in window) {
+      if (idleId !== undefined && "cancelIdleCallback" in window) {
         window.cancelIdleCallback(idleId);
       }
-      if (timeoutId) window.clearTimeout(timeoutId);
+      if (timeoutId !== undefined) clearTimeout(timeoutId);
     };
   }, []);
 
