@@ -92,7 +92,7 @@ export function ExamplesCarousel() {
                 width={1024}
                 height={705}
                 sizes="(max-width: 1160px) 92vw, 1100px"
-                priority={i === 0}
+                loading={i === 0 ? "eager" : "lazy"}
               />
             </figure>
           ))}

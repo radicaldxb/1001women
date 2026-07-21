@@ -3,14 +3,14 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-const POSTER = "/images/1001women-header.webp";
+const POSTER = "/images/1001women-header-960.webp";
 const VIDEO_WEBM = "/video/Header-image.webm";
 const VIDEO_MP4 = "/video/Header-image.mp4";
 
 /**
  * Hero media stack:
  * 1. StarSky (parent) — solid fallback
- * 2. Poster still — paints immediately for LCP
+ * 2. Compact poster — paints immediately for LCP
  * 3. Video — deferred until desktop + idle (skipped on mobile / reduced motion)
  */
 export function HeroVideo() {
@@ -25,7 +25,10 @@ export function HeroVideo() {
     const canPlayVideo = window.matchMedia("(min-width: 900px)").matches;
     const saveData =
       "connection" in navigator &&
-      Boolean((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData);
+      Boolean(
+        (navigator as Navigator & { connection?: { saveData?: boolean } })
+          .connection?.saveData,
+      );
 
     if (reduceMotion || !canPlayVideo || saveData) return;
 
@@ -100,7 +103,7 @@ export function HeroVideo() {
         alt=""
         fill
         priority
-        sizes="(max-width: 768px) 100vw, 1600px"
+        sizes="100vw"
         quality={70}
       />
 

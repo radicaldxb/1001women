@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Quicksand } from "next/font/google";
-import Script from "next/script";
+import { ChatWidget } from "@/components/ChatWidget";
 import { site, siteUrl } from "@/data/site";
 import "./globals.css";
 
@@ -9,6 +9,7 @@ const sans = Quicksand({
   variable: "--font-sans",
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
+  adjustFontFallback: true,
 });
 
 const display = Libre_Baskerville({
@@ -16,6 +17,8 @@ const display = Libre_Baskerville({
   variable: "--font-display",
   weight: ["400", "700"],
   display: "swap",
+  adjustFontFallback: true,
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -152,12 +155,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
-        {/* Elfsight AI Chatbot | 1001 Women Chat */}
-        <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
-        <div
-          className="elfsight-app-021f2ef8-ca3e-4571-bd98-e9ed23427864"
-          data-elfsight-app-lazy
-        />
+        <ChatWidget />
       </body>
     </html>
   );

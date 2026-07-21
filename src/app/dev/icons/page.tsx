@@ -1,5 +1,8 @@
 "use client";
 
+import "@flaticon/flaticon-uicons/css/thin/straight.css";
+import "@flaticon/flaticon-uicons/css/thin/rounded.css";
+import "@flaticon/flaticon-uicons/css/bold/straight.css";
 import { useMemo, useState } from "react";
 import { uiconsCatalog } from "@/data/uicons-catalog";
 

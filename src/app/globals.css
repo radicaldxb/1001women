@@ -1,7 +1,4 @@
-@import "@flaticon/flaticon-uicons/css/thin/straight.css";
 @import "@flaticon/flaticon-uicons/css/thin/rounded.css";
-@import "@flaticon/flaticon-uicons/css/bold/straight.css";
-@import "@flaticon/flaticon-uicons/css/regular/rounded.css";
 
 :root {
   --navy: #071a2e;
@@ -569,6 +566,18 @@ img {
   .hero-nebula,
   .star-sky-nebula {
     filter: none;
+  }
+
+  .hero-stage-tagline,
+  .hero-stage-lead,
+  .hero-stage-explore {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero-tagline {
+    white-space: normal;
   }
 }
 

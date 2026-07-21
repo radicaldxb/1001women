@@ -11,7 +11,7 @@ export type Story = {
  * not available in the open-source Uicons pack.
  */
 export const storyTagIcons: Record<string, string> = {
-  Astronomy: "fi fi-ts-constellation",
+  Astronomy: "fi fi-tr-constellation",
   Mathematics: "fi fi-tr-total",
   Medicine: "fi fi-tr-mortar-pestle",
   Literature: "fi fi-tr-catalog-magazine",
