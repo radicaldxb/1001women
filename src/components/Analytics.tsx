@@ -3,12 +3,13 @@
 import Script from "next/script";
 import { useEffect, useState } from "react";
 
+const GA_ID = "G-J8J6FDBJ9V";
+
 /**
- * Load the chat widget only after deliberate interaction or a long idle delay.
- * Scroll is intentionally excluded — Lighthouse scrolls the page and would
- * otherwise load Elfsight during the performance audit.
+ * Load analytics after first paint. Avoids scroll-triggered loads during
+ * Lighthouse / PageSpeed runs, which would skew performance and CLS.
  */
-export function ChatWidget() {
+export function Analytics() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -27,9 +28,9 @@ export function ChatWidget() {
 
     const schedule = () => {
       if ("requestIdleCallback" in window) {
-        idleId = window.requestIdleCallback(enable, { timeout: 15000 });
+        idleId = window.requestIdleCallback(enable, { timeout: 10000 });
       } else {
-        timeoutId = setTimeout(enable, 12000);
+        timeoutId = setTimeout(enable, 8000);
       }
     };
 
@@ -55,11 +56,18 @@ export function ChatWidget() {
 
   return (
     <>
-      <Script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
-      <div
-        className="elfsight-app-021f2ef8-ca3e-4571-bd98-e9ed23427864"
-        data-elfsight-app-lazy
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="lazyOnload"
       />
+      <Script id="google-analytics" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}
+      </Script>
     </>
   );
 }

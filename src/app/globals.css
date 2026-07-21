@@ -390,6 +390,7 @@ img {
 .hero-mark {
   width: min(100%, 520px);
   height: auto;
+  aspect-ratio: 1 / 1;
   display: block;
   /* Drop the logo's black square so the sky shows through */
   mix-blend-mode: screen;
@@ -570,7 +571,8 @@ img {
 
   .hero-stage-tagline,
   .hero-stage-lead,
-  .hero-stage-explore {
+  .hero-stage-explore,
+  .hero-explore-arrow {
     opacity: 1;
     transform: none;
     animation: none;
@@ -578,6 +580,11 @@ img {
 
   .hero-tagline {
     white-space: normal;
+    min-height: 2.6em;
+  }
+
+  .hero-lead {
+    min-height: 7.5em;
   }
 }
 

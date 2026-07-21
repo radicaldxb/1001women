@@ -102,9 +102,9 @@ export function HeroVideo() {
         src={POSTER}
         alt=""
         fill
-        priority
         sizes="100vw"
-        quality={70}
+        quality={65}
+        fetchPriority="low"
       />
 
       {loadVideo ? (

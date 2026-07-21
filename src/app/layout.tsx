@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Quicksand } from "next/font/google";
-import Script from "next/script";
+import { Analytics } from "@/components/Analytics";
 import { ChatWidget } from "@/components/ChatWidget";
 import { site, siteUrl } from "@/data/site";
 import "./globals.css";
@@ -154,23 +154,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${sans.variable} ${display.variable}`}>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-J8J6FDBJ9V"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-J8J6FDBJ9V');
-          `}
-        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <Analytics />
         <ChatWidget />
       </body>
     </html>
