@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville, Quicksand } from "next/font/google";
-import { Analytics } from "@/components/Analytics";
-import { ChatWidget } from "@/components/ChatWidget";
+import { DeferredExtras } from "@/components/DeferredExtras";
 import { site, siteUrl } from "@/data/site";
 import "./globals.css";
 
@@ -159,8 +158,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
-        <Analytics />
-        <ChatWidget />
+        <DeferredExtras />
       </body>
     </html>
   );

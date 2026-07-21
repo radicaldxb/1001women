@@ -1,14 +1,26 @@
+import dynamic from "next/dynamic";
 import { About } from "@/components/About";
-import { Behind } from "@/components/Behind";
-import { Creating } from "@/components/Creating";
 import { CredibilityStrip } from "@/components/CredibilityStrip";
-import { ExamplesCarousel } from "@/components/ExamplesCarousel";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Join } from "@/components/Join";
-import { StoryShowcase } from "@/components/StoryShowcase";
-import { TakePart } from "@/components/TakePart";
 import { Topbar } from "@/components/Topbar";
+
+const StoryShowcase = dynamic(() =>
+  import("@/components/StoryShowcase").then((mod) => mod.StoryShowcase),
+);
+const Creating = dynamic(() =>
+  import("@/components/Creating").then((mod) => mod.Creating),
+);
+const TakePart = dynamic(() =>
+  import("@/components/TakePart").then((mod) => mod.TakePart),
+);
+const ExamplesCarousel = dynamic(() =>
+  import("@/components/ExamplesCarousel").then((mod) => mod.ExamplesCarousel),
+);
+const Behind = dynamic(() =>
+  import("@/components/Behind").then((mod) => mod.Behind),
+);
 
 export default function HomePage() {
   return (

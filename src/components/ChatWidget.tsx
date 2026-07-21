@@ -27,7 +27,7 @@ export function ChatWidget() {
 
     const schedule = () => {
       if ("requestIdleCallback" in window) {
-        idleId = window.requestIdleCallback(enable, { timeout: 15000 });
+        idleId = window.requestIdleCallback(enable, { timeout: 25000 });
       } else {
         timeoutId = setTimeout(enable, 12000);
       }
