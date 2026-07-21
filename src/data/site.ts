@@ -64,9 +64,9 @@ export const credibility = [
     href: orgLinks.inventions,
   },
   {
-    label: "Historical Research",
-    value: "FSTC",
-    href: orgLinks.fstc,
+    label: "Produced and led by",
+    value: "Ahmed Salim",
+    href: orgLinks.ahmedSalim,
   },
 ] as const;
 
@@ -84,13 +84,6 @@ export const producerRoles = [
     href: orgLinks.inventions,
     description:
       "The global books, exhibitions and educational programmes that 1001 Women builds on.",
-  },
-  {
-    name: "FSTC",
-    logo: "/images/logos/FSTC.webp",
-    href: orgLinks.fstc,
-    description:
-      "Historical research and source material behind the 1001 Women initiative.",
   },
 ] as const;
 

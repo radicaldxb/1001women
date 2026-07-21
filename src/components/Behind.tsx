@@ -3,7 +3,7 @@ import { producerRoles } from "@/data/site";
 
 export function Behind() {
   return (
-    <section id="behind" className="section-divided">
+    <section id="behind">
       <div className="wrap plain">
         <div className="kicker">Who are we</div>
         <h2>From the producer of 1001 Inventions</h2>
@@ -17,10 +17,10 @@ export function Behind() {
           educational programmes and live public experiences.
         </p>
         <p>
-          The 1001 Women initiative is produced and led by 1001 Inventions,
-          bringing together research, storytelling, education, design and public
-          engagement to carry these overlooked stories into mainstream public
-          life.
+          The 1001 Women initiative is{" "}
+          <strong>produced and led by Ahmed Salim</strong>, bringing together
+          research, storytelling, education, design and public engagement to
+          carry these overlooked stories into mainstream public life.
         </p>
         <p>
           The historical content is grounded in the{" "}

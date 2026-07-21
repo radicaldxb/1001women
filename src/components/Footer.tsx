@@ -26,6 +26,12 @@ export function Footer() {
             <a href={orgLinks.inventions} target="_blank" rel="noopener noreferrer">
               1001 Inventions
             </a>
+            .
+            <br />
+            Produced and led by{" "}
+            <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
+              Ahmed Salim
+            </a>
             . Research foundation by FSTC.
           </div>
         </div>
