@@ -10,24 +10,59 @@ const VIDEO_MP4 = "/video/Header-image.mp4";
 /**
  * Hero media stack:
  * 1. StarSky (parent) — solid fallback
- * 2. Poster still — paints fast
- * 3. Video — fades in when ready (skipped for reduced motion)
+ * 2. Poster still — paints immediately for LCP
+ * 3. Video — deferred until desktop + idle (skipped on mobile / reduced motion)
  */
 export function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [posterReady, setPosterReady] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-  const [motionOk, setMotionOk] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
 
   useEffect(() => {
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (!reduceMotion) setMotionOk(true);
+    const canPlayVideo = window.matchMedia("(min-width: 900px)").matches;
+    const saveData =
+      "connection" in navigator &&
+      Boolean((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData);
+
+    if (reduceMotion || !canPlayVideo || saveData) return;
+
+    let cancelled = false;
+    let idleId = 0;
+    let timeoutId = 0;
+
+    const enable = () => {
+      if (!cancelled) setLoadVideo(true);
+    };
+
+    const schedule = () => {
+      if ("requestIdleCallback" in window) {
+        idleId = window.requestIdleCallback(enable, { timeout: 1800 });
+      } else {
+        timeoutId = window.setTimeout(enable, 900);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      schedule();
+    } else {
+      window.addEventListener("load", schedule, { once: true });
+    }
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener("load", schedule);
+      if (idleId && "cancelIdleCallback" in window) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId) window.clearTimeout(timeoutId);
+    };
   }, []);
 
   useEffect(() => {
-    if (!motionOk) return;
+    if (!loadVideo) return;
     const video = videoRef.current;
     if (!video) return;
 
@@ -50,15 +85,11 @@ export function HeroVideo() {
       video.removeEventListener("loadeddata", markReady);
       video.removeEventListener("canplay", markReady);
     };
-  }, [motionOk]);
+  }, [loadVideo]);
 
   return (
     <div
-      className={[
-        "hero-video",
-        posterReady ? "has-poster" : "",
-        videoReady ? "is-ready" : "",
-      ]
+      className={["hero-video", videoReady ? "is-ready" : ""]
         .filter(Boolean)
         .join(" ")}
       aria-hidden="true"
@@ -69,18 +100,18 @@ export function HeroVideo() {
         alt=""
         fill
         priority
-        sizes="100vw"
-        onLoad={() => setPosterReady(true)}
+        sizes="(max-width: 768px) 100vw, 1600px"
+        quality={70}
       />
 
-      {motionOk ? (
+      {loadVideo ? (
         <video
           ref={videoRef}
           className="hero-video-media"
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="none"
           poster={POSTER}
         >
           <source src={VIDEO_WEBM} type="video/webm" />

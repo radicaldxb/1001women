@@ -18,6 +18,8 @@ export function Hero() {
             width={900}
             height={900}
             priority
+            sizes="(max-width: 620px) 78vw, 520px"
+            quality={75}
           />
           <h1 className="visually-hidden">{site.name}</h1>
         </div>
