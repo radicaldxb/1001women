@@ -1,14 +1,6 @@
 import Image from "next/image";
 import { orgLinks, site, socialLinks } from "@/data/site";
 
-const legalLinks = [
-  { href: "/faq", label: "FAQ" },
-  { href: "/llm", label: "AI overview" },
-  { href: "/llms.txt", label: "llms.txt" },
-  { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" },
-] as const;
-
 export function Footer() {
   return (
     <footer className="footer">
@@ -21,11 +13,10 @@ export function Footer() {
             width={72}
             height={72}
           />
-          <div className="footer-copy">
-            <p className="footer-title">
-              {site.name} – {site.title}
-            </p>
-            <p>
+            <div className="footer-copy">
+              <strong>
+                {site.name} – {site.title}
+              </strong>{" "}
               <strong>{site.name}</strong> is an initiative of{" "}
               <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
                 1001 Foundation (UK)
@@ -34,16 +25,12 @@ export function Footer() {
               <a href={orgLinks.inventions} target="_blank" rel="noopener noreferrer">
                 1001 Inventions
               </a>
-              .
-            </p>
-            <p>
-              Produced and led by{" "}
+              . Produced and led by{" "}
               <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
                 Ahmed Salim
               </a>
               . Research foundation by FSTC.
-            </p>
-          </div>
+            </div>
         </div>
 
         <nav className="footer-social" aria-label="1001 Inventions social links">
@@ -59,19 +46,22 @@ export function Footer() {
           ))}
         </nav>
 
-        <nav className="footer-legal" aria-label="Site links">
-          <span className="footer-legal-item">
-            ©{" "}
-            <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
-              1001 Foundation
-            </a>
-          </span>
-          {legalLinks.map((link) => (
-            <a key={link.href} className="footer-legal-item" href={link.href}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        <div className="footer-legal">
+          ©{" "}
+          <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
+            1001 Foundation
+          </a>
+          {" · "}
+          <a href="/faq">FAQ</a>
+          {" · "}
+          <a href="/llm">AI overview</a>
+          {" · "}
+          <a href="/llms.txt">llms.txt</a>
+          {" · "}
+          <a href="/privacy">Privacy</a>
+          {" · "}
+          <a href="/terms">Terms</a>
+        </div>
       </div>
     </footer>
   );
