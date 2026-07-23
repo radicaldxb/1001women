@@ -6,7 +6,13 @@ export function buildLlmsTxt(): string {
     .join("\n");
 
   const faq = faqItems
-    .map((item) => `- **${item.question}** ${item.answer}`)
+    .map((item) => {
+      const answer = item.answer.replaceAll(
+        "{{contactEmail}}",
+        site.contactEmail,
+      );
+      return `- **${item.question}** ${answer}`;
+    })
     .join("\n");
 
   return `# ${site.name}

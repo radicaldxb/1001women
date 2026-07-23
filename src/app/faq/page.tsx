@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { faqItems, site, siteUrl } from "@/data/site";
 
@@ -10,7 +12,35 @@ export const metadata: Metadata = {
   alternates: { canonical: "/faq" },
 };
 
-const updated = "21 July 2026";
+const updated = "23 July 2026";
+const contactEmailToken = "{{contactEmail}}";
+
+function faqAnswerText(answer: string) {
+  return answer.replaceAll(contactEmailToken, site.contactEmail);
+}
+
+function FaqAnswer({ answer }: { answer: string }) {
+  if (!answer.includes(contactEmailToken)) {
+    return <p>{answer}</p>;
+  }
+
+  const [before, after] = answer.split(contactEmailToken);
+  const nodes: ReactNode[] = [
+    before,
+    <span key="email" className="privacy-email-line">
+      <Image
+        className="privacy-email-image"
+        src="/images/legal/contact-email.svg"
+        alt="Press and partnership enquiries email address"
+        width={248}
+        height={22}
+      />
+    </span>,
+    after,
+  ];
+
+  return <p>{nodes}</p>;
+}
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -20,7 +50,7 @@ const faqJsonLd = {
     name: item.question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.answer,
+      text: faqAnswerText(item.answer),
     },
   })),
 };
@@ -60,7 +90,7 @@ export default function FaqPage() {
             <h2>
               {index + 1}. {item.question}
             </h2>
-            <p>{item.answer}</p>
+            <FaqAnswer answer={item.answer} />
           </section>
         ))}
 

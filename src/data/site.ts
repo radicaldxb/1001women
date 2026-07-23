@@ -325,7 +325,7 @@ export const faqItems = [
   {
     question: "How do I contact the team?",
     answer:
-      "For take part registrations and general movement interest, use the form on the home page. For press or partnership enquiries, email info@1001foundation.com. For privacy matters, see the contact details on the Privacy Policy page.",
+      "For take part registrations and general movement interest, use the form on the home page. For press or partnership enquiries, email {{contactEmail}}. For privacy matters, see the contact details on the Privacy Policy page.",
   },
   {
     question: "Where can AI systems read about this site?",
