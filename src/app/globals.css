@@ -2481,20 +2481,21 @@ section {
   pointer-events: none;
 }
 
-.footer .wrap {
+.footer-inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  align-items: start;
-  gap: 28px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .footer-brand {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  min-width: 0;
+  width: 100%;
+  max-width: 46rem;
 }
 
 .footer-logo {
@@ -2523,38 +2524,32 @@ section {
   margin-bottom: 0.45em !important;
 }
 
-.footer-meta {
+.footer-social {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 14px;
-  text-align: right;
-  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
 }
 
-.footer-social,
 .footer-legal {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 0;
-}
-
-.footer-social {
-  justify-content: flex-end;
-  gap: 8px 16px;
-}
-
-.footer-legal {
-  justify-content: flex-end;
+  width: 100%;
+  padding-top: 18px;
+  border-top: 1px solid rgba(141, 104, 39, 0.14);
   font-size: 0.88rem;
 }
 
-.footer-legal > * + *::before {
-  content: "·";
-  margin-inline: 10px;
-  color: rgba(7, 26, 46, 0.35);
-  pointer-events: none;
+.footer-legal-item {
+  white-space: nowrap;
+}
+
+.footer-legal-item + .footer-legal-item {
+  padding-left: 12px;
+  margin-left: 12px;
+  border-left: 1px solid rgba(7, 26, 46, 0.18);
 }
 
 .footer strong {
@@ -2715,24 +2710,6 @@ section {
 }
 
 @media (max-width: 980px) {
-  .footer .wrap {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .footer-meta {
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    padding-top: 18px;
-    border-top: 1px solid rgba(141, 104, 39, 0.14);
-  }
-
-  .footer-social,
-  .footer-legal {
-    justify-content: flex-start;
-  }
-
   .split {
     grid-template-columns: 1fr;
   }
@@ -2864,8 +2841,8 @@ section {
     max-width: none;
   }
 
-  .footer .wrap {
-    gap: 20px;
+  .footer-inner {
+    gap: 18px;
   }
 
   .footer-brand {
@@ -2875,10 +2852,6 @@ section {
   .footer-logo {
     width: 48px;
     height: 48px;
-  }
-
-  .footer-legal {
-    row-gap: 6px;
   }
 
   .join-panel {

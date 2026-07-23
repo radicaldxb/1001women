@@ -12,7 +12,7 @@ const legalLinks = [
 export function Footer() {
   return (
     <footer className="footer">
-      <div className="wrap">
+      <div className="wrap footer-inner">
         <div className="footer-brand">
           <Image
             className="footer-logo"
@@ -46,34 +46,32 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="footer-meta">
-          <nav className="footer-social" aria-label="1001 Inventions social links">
-            {socialLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+        <nav className="footer-social" aria-label="1001 Inventions social links">
+          {socialLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
 
-          <nav className="footer-legal" aria-label="Site links">
-            <span>
-              ©{" "}
-              <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
-                1001 Foundation
-              </a>
-            </span>
-            {legalLinks.map((link) => (
-              <a key={link.href} href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
-        </div>
+        <nav className="footer-legal" aria-label="Site links">
+          <span className="footer-legal-item">
+            ©{" "}
+            <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
+              1001 Foundation
+            </a>
+          </span>
+          {legalLinks.map((link) => (
+            <a key={link.href} className="footer-legal-item" href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </footer>
   );
