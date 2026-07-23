@@ -31,7 +31,7 @@ export const site = {
     "Join us and take part in bringing their stories into mainstream public awareness through educational campaigns, books, exhibitions and digital media.",
   ],
   statement: "A lasting answer. A shared memory. A new generation inspired.",
-  contactEmail: "ahmed@1001inventions.com",
+  contactEmail: "info@1001foundation.com",
   formRecipient: "ahmed@1001inventions.com",
   companyName: "1001 Foundation (UK)",
   companyNumber: "11321847",
@@ -325,7 +325,7 @@ export const faqItems = [
   {
     question: "How do I contact the team?",
     answer:
-      "For take part registrations and general movement interest, use the form on the home page. For press or partnership enquiries, email ahmed@1001inventions.com. For privacy matters, see the contact details on the Privacy Policy page.",
+      "For take part registrations and general movement interest, use the form on the home page. For press or partnership enquiries, email info@1001foundation.com. For privacy matters, see the contact details on the Privacy Policy page.",
   },
   {
     question: "Where can AI systems read about this site?",

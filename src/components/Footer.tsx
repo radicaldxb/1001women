@@ -1,6 +1,14 @@
 import Image from "next/image";
 import { orgLinks, site, socialLinks } from "@/data/site";
 
+const legalLinks = [
+  { href: "/faq", label: "FAQ" },
+  { href: "/llm", label: "AI overview" },
+  { href: "/llms.txt", label: "llms.txt" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" },
+] as const;
+
 export function Footer() {
   return (
     <footer className="footer">
@@ -13,30 +21,33 @@ export function Footer() {
             width={72}
             height={72}
           />
-          <div>
-            <strong>
+          <div className="footer-copy">
+            <p className="footer-title">
               {site.name} – {site.title}
-            </strong>
-            <br />
-            <strong>{site.name}</strong> is an initiative of{" "}
-            <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
-              1001 Foundation (UK)
-            </a>
-            , the producer of{" "}
-            <a href={orgLinks.inventions} target="_blank" rel="noopener noreferrer">
-              1001 Inventions
-            </a>
-            .
-            <br />
-            Produced and led by{" "}
-            <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
-              Ahmed Salim
-            </a>
-            . Research foundation by FSTC.
+            </p>
+            <p>
+              <strong>{site.name}</strong> is an initiative of{" "}
+              <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
+                1001 Foundation (UK)
+              </a>
+              , the producer of{" "}
+              <a href={orgLinks.inventions} target="_blank" rel="noopener noreferrer">
+                1001 Inventions
+              </a>
+              .
+            </p>
+            <p>
+              Produced and led by{" "}
+              <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
+                Ahmed Salim
+              </a>
+              . Research foundation by FSTC.
+            </p>
           </div>
         </div>
+
         <div className="footer-meta">
-          <div className="footer-social" aria-label="1001 Inventions social links">
+          <nav className="footer-social" aria-label="1001 Inventions social links">
             {socialLinks.map((link) => (
               <a
                 key={link.href}
@@ -47,22 +58,21 @@ export function Footer() {
                 {link.label}
               </a>
             ))}
-          </div>
-          <div>
-            ©{" "}
-            <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
-              1001 Foundation
-            </a>{" "}
-            · <a href="/faq">FAQ</a>
-            {" · "}
-            <a href="/llm">AI overview</a>
-            {" · "}
-            <a href="/llms.txt">llms.txt</a>
-            {" · "}
-            <a href="/privacy">Privacy</a>
-            {" · "}
-            <a href="/terms">Terms</a>
-          </div>
+          </nav>
+
+          <nav className="footer-legal" aria-label="Site links">
+            <span>
+              ©{" "}
+              <a href={orgLinks.foundation} target="_blank" rel="noopener noreferrer">
+                1001 Foundation
+              </a>
+            </span>
+            {legalLinks.map((link) => (
+              <a key={link.href} href={link.href}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
         </div>
       </div>
     </footer>
