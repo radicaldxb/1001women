@@ -29,7 +29,7 @@ export function Footer() {
               <a href={orgLinks.ahmedSalim} target="_blank" rel="noopener noreferrer">
                 Ahmed Salim
               </a>
-              . Research foundation by FSTC.
+              .
             </div>
         </div>
 
@@ -55,8 +55,6 @@ export function Footer() {
           <a href="/faq">FAQ</a>
           {" · "}
           <a href="/llm">AI overview</a>
-          {" · "}
-          <a href="/llms.txt">llms.txt</a>
           {" · "}
           <a href="/privacy">Privacy</a>
           {" · "}
